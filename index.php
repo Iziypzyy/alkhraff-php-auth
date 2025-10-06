@@ -1,5 +1,5 @@
 <?php
-// WAJIB: Memulai session di baris paling atas untuk memeriksa status login
+// Session tetap dimulai untuk fungsionalitas lain di masa depan
 session_start();
 ?>
 <!DOCTYPE html>
@@ -23,11 +23,7 @@ session_start();
                 <li><a href="#contact">Kontak</a></li>
 
                 <li>
-                    <?php if (isset($_SESSION['username'])): ?>
-                        <a href="dashboard.php" class="btn btn-primary">Dashboard</a>
-                    <?php else: ?>
-                        <a href="login.php" class="btn btn-primary">Masuk</a>
-                    <?php endif; ?>
+                    <a href="login.php" class="btn btn-primary">Masuk</a>
                 </li>
                 </ul>
         </nav>
