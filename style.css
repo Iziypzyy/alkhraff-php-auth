@@ -1,0 +1,590 @@
+/* ===== REUSABLE CLASSES ===== */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  background: var(--accent-color);
+  color: #fff;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(52,152,219,0.08);
+}
+.btn-primary {
+  background: var(--secondary-color);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--accent-color);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+}
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  transition: var(--transition);
+  position: relative;
+}
+.card:hover {
+  box-shadow: 0 8px 32px rgba(44,62,80,0.13);
+  transform: translateY(-4px) scale(1.01);
+}
+.card-featured {
+  border: 2px solid var(--accent-color);
+}
+/* ===== VARIABLES & RESET ===== */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #e74c3c;
+  --accent-color: #3498db;
+  --light-color: #f4f6fa;
+  --dark-color: #23272f;
+  --gray-color: #95a5a6;
+  --text-color: #222;
+  --text-light: #7b7b7b;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2.5rem;
+  --spacing-xl: 4rem;
+  --border-radius: 10px;
+  --box-shadow: 0 4px 24px rgba(44, 62, 80, 0.10);
+  --transition: all 0.3s cubic-bezier(.4,2,.3,1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.7;
+  color: var(--text-color);
+  background: linear-gradient(120deg, #f9f9f9 60%, #eaf0f7 100%);
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius);
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-color);
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--secondary-color);
+}
+
+ul {
+  list-style: none;
+}
+
+main {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: var(--spacing-sm);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-md);
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+p {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: #fff;
+  box-shadow: var(--box-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: var(--spacing-sm) 0;
+}
+
+header h1 {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  letter-spacing: 2px;
+  font-weight: 800;
+  margin-left: var(--spacing-sm);
+}
+
+header nav ul {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: var(--spacing-sm);
+}
+
+header nav ul li a {
+  font-weight: 500;
+  color: var(--primary-color);
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  transition: var(--transition);
+}
+header nav ul li a:hover {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+#home {
+  background: linear-gradient(120deg, rgba(44,62,80,0.7) 60%, rgba(52,152,219,0.5) 100%),
+    url('img/long sleeve.jpeg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: var(--spacing-xl) 0 var(--spacing-lg) 0;
+  margin-bottom: var(--spacing-xl);
+  border-radius: 0 0 40px 40px;
+  box-shadow: 0 8px 32px rgba(44,62,80,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efek dekoratif gambar work jacket di setiap card produk saat hover */
+#products article:hover::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 60px;
+  height: 60px;
+  background: url('img/work jacket.jpeg') no-repeat center/cover;
+  opacity: 0.08;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+#home h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: var(--spacing-xs);
+  letter-spacing: 1px;
+}
+#home p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: var(--spacing-md);
+  color: #e0e0e0;
+}
+#home a {
+  display: inline-block;
+  background: var(--secondary-color);
+  color: #fff;
+  padding: 0.8rem 2.2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(231,76,60,0.10);
+  transition: var(--transition);
+  margin-top: var(--spacing-xs);
+}
+#home a:hover {
+  background: var(--accent-color);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* ===== PRODUCTS SECTION ===== */
+#products {
+  padding: var(--spacing-xl) 0 var(--spacing-lg) 0;
+}
+#products h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+  color: var(--primary-color);
+  letter-spacing: 1px;
+}
+#products {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+#products article {
+  background: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: justify;
+  gap: var(--spacing-md);
+  transition: var(--transition);
+}
+#products article:hover {
+  box-shadow: 0 8px 32px rgba(44,62,80,0.13);
+  transform: translateY(-4px) scale(1.01);
+}
+#products figure {
+  flex: 0 0 auto;
+  margin: 0;
+}
+#products img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+}
+#products h3 {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-xs);
+}
+#products p {
+  color: var(--text-light);
+  font-size: 1rem;
+  margin-bottom: var(--spacing-xs);
+}
+#products p:last-child {
+  color: var(--secondary-color);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+/* ===== CATEGORIES SECTION ===== */
+#categories {
+  padding: var(--spacing-xl) 0 var(--spacing-lg) 0;
+  background: var(--light-color);
+  border-radius: 30px;
+  margin: var(--spacing-lg) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background dekoratif celana katun di kategori */
+#categories::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 120px;
+  height: 120px;
+  background: url('img/celana katun.jpg') no-repeat left center/contain;
+  opacity: 0.10;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+#categories h2 {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: var(--spacing-md);
+}
+#categories ul {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+#categories li {
+  background: #fff;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+#categories li:hover {
+  background: var(--secondary-color);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* ===== ABOUT SECTION ===== */
+#about {
+  padding: var(--spacing-xl) 0 var(--spacing-lg) 0;
+  background: #fff;
+  border-radius: 30px;
+  box-shadow: var(--box-shadow);
+  margin-bottom: var(--spacing-lg);
+}
+#about h2 {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: var(--spacing-md);
+}
+#about p {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: justify;
+  color: var(--text-light);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* ===== NEWSLETTER SECTION ===== */
+#newsletter {
+  padding: var(--spacing-xl) 0 var(--spacing-lg) 0;
+  background: linear-gradient(120deg, var(--primary-color) 60%, var(--accent-color) 100%);
+  color: #fff;
+  text-align: center;
+  border-radius: 30px;
+  margin-bottom: var(--spacing-lg);
+  box-shadow: var(--box-shadow);
+}
+#newsletter h2 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-xs);
+}
+#newsletter p {
+  color: #e0e0e0;
+  margin-bottom: var(--spacing-md);
+}
+#newsletter form {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  max-width: 400px;
+  margin: 0 auto;
+}
+#newsletter input[type="email"] {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  outline: none;
+  margin-right: var(--spacing-xs);
+}
+#newsletter button {
+  background: var(--secondary-color);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+#newsletter button:hover {
+  background: var(--accent-color);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--dark-color);
+  color: #fff;
+  padding: var(--spacing-xl) 0 var(--spacing-md) 0;
+  border-radius: 30px 30px 0 0;
+  margin-top: var(--spacing-xl);
+}
+footer section {
+  margin-bottom: var(--spacing-md);
+}
+footer h3, footer h4 {
+  color: var(--accent-color);
+  margin-bottom: var(--spacing-xs);
+  font-weight: 700;
+}
+footer ul {
+  margin-bottom: var(--spacing-xs);
+}
+footer ul li {
+  margin-bottom: var(--spacing-xs);
+}
+footer ul li a {
+  color: #fff;
+  transition: color 0.2s;
+}
+footer ul li a:hover {
+  color: var(--secondary-color);
+}
+footer address {
+  font-style: normal;
+  color: var(--light-color);
+  font-size: 1rem;
+}
+footer p {
+  color: #bbb;
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+}
+footer .copyright, footer > p:last-child {
+  text-align: center;
+  color: #aaa;
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 900px) {
+  main {
+    width: 98%;
+  }
+  #products article {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  #products img {
+    width: 100%;
+    height: 180px;
+    margin-bottom: var(--spacing-xs);
+  }
+  #categories ul {
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --spacing-xl: 1.5rem;
+    --spacing-lg: 1rem;
+    --spacing-md: 0.7rem;
+  }
+  header h1 {
+    font-size: 1.3rem;
+  }
+  #home h2 {
+    font-size: 1.5rem;
+  }
+  #products h2, #categories h2, #about h2, #newsletter h2 {
+    font-size: 1.2rem;
+  }
+  #products article {
+    padding: var(--spacing-sm);
+  }
+  #categories ul {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  #categories li {
+    padding: var(--spacing-sm);
+    font-size: 1rem;
+  }
+  #newsletter form {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  #newsletter input[type="email"] {
+    margin-right: 0;
+  }
+  footer {
+    padding: var(--spacing-lg) 0 var(--spacing-sm) 0;
+  }
+}
+
+body.dark-mode {
+  background: #181c23;
+  color: #f4f6fa;
+}
+body.dark-mode header,
+body.dark-mode main,
+body.dark-mode footer,
+body.dark-mode section,
+body.dark-mode .card {
+  background: #23272f !important;
+  color: #f4f6fa !important;
+  box-shadow: none;
+}
+body.dark-mode .btn,
+body.dark-mode .btn-primary {
+  background: #3498db;
+  color: #fff;
+}
+body.dark-mode a {
+  color: #7ed6df;
+}
+body.dark-mode a:hover {
+  color: #ffe066;
+}
+body.dark-mode p,
+body.dark-mode #products p,
+body.dark-mode #about p,
+body.dark-mode #newsletter p,
+body.dark-mode footer p,
+body.dark-mode .card p {
+  color: #e6e6e6 !important;
+  /* abu terang, nyaman di dark mode */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #ffe066 !important;
+  /* kuning pastel, kontras dan tetap elegan */
+  text-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
